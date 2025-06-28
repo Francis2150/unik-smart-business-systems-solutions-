@@ -1,93 +1,213 @@
 /* Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Base Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    background-color: #fff;
+  font-family: 'Inter', sans-serif;
+  color: #222;
+  background-color: #fefefe;
+  line-height: 1.6;
 }
 
+/* Header */
 header {
-    background: #004c99;
-    color: white;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background: #003366;
+  color: #fff;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header .logo {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 nav ul {
-    display: flex;
-    list-style: none;
+  display: flex;
+  list-style: none;
 }
 
 nav ul li {
-    margin-left: 20px;
+  margin-left: 25px;
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: gold;
+  color: gold;
 }
 
+/* Hero Section */
 .hero {
-    background: url('../images/hero.jpg') center/cover no-repeat;
-    color: rgb(45, 98, 118);
-    text-align: center;
-    padding: 120px 20px;
+  background: url('../images/hero.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 140px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero .btn {
-    margin-top: 20px;
-    display: inline-block;
-    background: gold;
-    color: black;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
+.hero .hero-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 10px;
 }
 
-.about, .services, .portfolio, .contact {
-    padding: 60px 20px;
-    text-align: center;
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
 }
 
-.services .service-cards, .portfolio .portfolio-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+.hero p {
+  font-size: 18px;
 }
 
-.card, .item {
-    background: #f4f4f4;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+.btn {
+  margin-top: 20px;
+  background: gold;
+  color: black;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  display: inline-block;
+  transition: background 0.3s ease;
 }
 
+.btn:hover {
+  background: #ffd700c9;
+}
+
+section {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+/* Headings */
+h2 {
+  color: #003366;
+  margin-bottom: 20px;
+  font-size: 28px;
+  border-bottom: 3px solid gold;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Services & Portfolio */
+.service-cards,
+.portfolio-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.card,
+.item {
+  background: rgb(39, 149, 157);
+  padding: 25px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover,
+.item:hover {
+  transform: translateY(-5px);
+}
+
+/* Contact Section */
+.contact .btn.whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+
+.contact .btn.whatsapp:hover {
+  background-color: #1ebe5c;
+}
+
+/* Footer */
 footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
+  background: #003366;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
 }
-h2{
-    text-decoration: underline;
-    color: blue;
+
+
+/* Background gradient animation */
+/* Animate hero content moving left to right infinitely */
+@keyframes moveRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Hero Section with background styling */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, #004c99, #007acc, #00c3ff);
+  background-size: 300% 300%;
+  animation: backgroundShift 15s ease infinite;
+  color: white;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 20px;
+}
+
+/* Background animation for extra effect */
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hero Content moving */
+.hero-content {
+  white-space: nowrap;
+  padding: 20px 40px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  animation: moveRight 15s linear infinite;
+  min-width: 100%;
+}
+
+.hero-content h1, .hero-content p {
+  margin-bottom: 10px;
+}
+
+.hero-content .btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: gold;
+  color: black;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.hero-content:hover {
+  animation-play-state: paused;
 }
